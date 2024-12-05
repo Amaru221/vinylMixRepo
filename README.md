@@ -35,6 +35,25 @@ Now check out the site at `https://localhost:8000`
 
 Have fun!
 
+**DOCKER CONFIGURATION**
+We need create and configurate our postgres database, in this case we are using 
+a docker image to alocate the database.
+You have the compose.yaml file that contains all necessary configuration
+Execute:
+
+```
+#To start the container
+docker compose up -d
+
+# if you want to use MySQL instead of Postgres, you absolutely can. Feel free to
+ update these files... or delete both of them and run
+symfony console make:docker:database
+
+#To create the database in the container
+symfony console doctrine:database:create
+#With this command, we are using the binary of symfony, and this take automatically the parameters of docker
+```
+
 **OPTIONAL: Webpack Encore Assets**
 
 This app uses Webpack Encore for the CSS, JS and image files.
