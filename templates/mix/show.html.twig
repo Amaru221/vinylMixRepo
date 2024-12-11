@@ -15,7 +15,15 @@
                 <span>track count: </span></br>
                 <span>Genre: {{ mix.genre }}</span></br>
                 <span>Created: {{ mix.createdAt|ago }}</span></br>
-                <span>Votes: {{ mix.votes }}</span></br>
+                <form action="{{ path('app_mix_vote', {id:mix.id})}}" method="POST">
+                    <button type="submit" class="btn btn-outline-primary" name="direction" value="up">
+                    <span class="fa fa-thumbs-up"></span></button>
+                    
+                    <button type="submit" class="btn btn-outline-secondary" name="direction" value="down">
+                    <span class="fa fa-thumbs-down"></span></button>                    
+                    
+                </form>
+                    <span>Votes: {{ mix.votes }}</span></br>
             </div>
         </div>
     </div>
