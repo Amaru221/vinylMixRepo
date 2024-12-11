@@ -54,6 +54,13 @@
                 </div>
             </nav>
             <!-- End Main Navigation -->
+            <div class="mb-5">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
 
         {% block body %}{% endblock %}
