@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script>
+            console.log("plantilla layout loaded");
+            // Esperar a que el documento esté completamente cargado
+            document.addEventListener("turbo:load", function() {
+                    // Seleccionar todos los mensajes flash que tienen la clase 'alert'
+                    document.querySelectorAll('.alert').forEach(function(alert) {
+                        // Configurar un temporizador para eliminar el mensaje después de 5 segundos
+                        setTimeout(function() {
+                            alert.remove();
+                        }, 3000); // 3 segundos de espera
+                    });
+            });
+    </script>
+{% endblock %}
