@@ -34,7 +34,7 @@ class MixController extends AbstractController
         ));
     }
 
-    #[Route('/{id}', name: 'app_mix_show', requirements: ['id' => '\d+'])]
+    #[Route('/{slug}', name: 'app_mix_show', requirements: ['id' => '\d+'])]
     public function show(VinylMix $mix, VinylMixRepository $mixRepository){
         //$mix = $mixRepository->find(['id' => $id]);
 
@@ -48,7 +48,7 @@ class MixController extends AbstractController
     }
 
 
-    #[Route('/{id}/vote', name: 'app_mix_vote', methods: ['POST', ])]
+    #[Route('/{slug}/vote', name: 'app_mix_vote', methods: ['POST', ])]
     public function vote(VinylMix $mix, Request $request, EntityManagerInterface $em): Response{
 
         $vote = $request->request->get('direction', 'up');
